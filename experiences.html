@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiences | Wanderlust Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav"><a class="logo" href="index.html">WANDERLUST<span>GRID</span></a><div class="links"><a href="index.html">Home</a><a href="destinations.html">Destinations</a><a href="packages.html">Tour Packages</a><a class="active" href="experiences.html">Experiences</a><a href="guide.html">Travel Guide</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div><button class="icon-btn menu-btn" data-menu>=</button><button class="btn" data-open-planner>Plan Your Trip -></button></nav>
+  <header class="page-hero paper-edge" style="--hero-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80')"><div class="eyebrow">Experiences</div><h1>Build the trip around what you love.</h1><p>Food, trails, wellness, city nights, and slow mornings. Experiences can be added to any package.</p></header>
+  <main class="section">
+    <div class="grid" data-experiences></div>
+    <div class="section-title" style="margin-top:60px"><div><div class="eyebrow">Popular Pairings</div><h2>Made to mix and match.</h2></div></div>
+    <div class="grid">
+      <article id="food" class="panel"><h3>Markets and kitchens</h3><p>Pair with Paris, Bali, or New York for neighborhood tastings and hands-on cooking sessions.</p><a class="explore" href="contact.html">Ask for food trails <span class="orange">&nbsp;-></span></a></article>
+      <article id="trek" class="panel"><h3>Mountain and coastal trails</h3><p>Pair with Switzerland or Bali for guided routes, viewpoints, and comfortable recovery nights.</p><a class="explore" href="contact.html">Ask for trekking <span class="orange">&nbsp;-></span></a></article>
+      <article id="wellness" class="panel"><h3>Reset days</h3><p>Pair with Maldives or Bali for yoga, spa rituals, quiet villas, and ocean-facing mornings.</p><a class="explore" href="contact.html">Ask for wellness <span class="orange">&nbsp;-></span></a></article>
+    </div>
+  </main>
+  <footer class="footer"><div class="copy">Copyright 2026 Wanderlust Grid. All rights reserved.</div></footer>
+  <div class="modal" id="plannerModal"><div class="modal-card"><div class="modal-head"><h2>Plan your trip</h2><button class="icon-btn" data-close-planner>x</button></div><form id="plannerForm" class="planner-panel"><div class="field"><label>Destination</label><select name="destination"><option value="bali">Bali</option><option value="switzerland">Swiss Alps</option><option value="dubai">Dubai</option><option value="paris">Paris</option><option value="new-york">New York</option><option value="maldives">Maldives</option></select></div><div class="field"><label>Travelers</label><input name="travelers" type="number" min="1" value="2"></div><div class="field"><label>Days</label><input name="days" type="number" min="2" value="6"></div><div class="field"><label>Pace</label><select name="pace"><option>balanced</option><option>relaxed</option><option>packed</option></select></div><button class="btn dark" type="submit">Estimate Trip</button></form><div id="quoteResult" class="quote-box">Choose a route and generate a quick estimate.</div></div></div>
+  <div class="toast" id="toast"></div><script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>

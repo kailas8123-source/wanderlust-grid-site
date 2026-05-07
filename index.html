@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanderlust Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav home-nav">
+    <a class="logo" href="index.html">WANDERLUST<span>GRID</span></a>
+    <div class="links">
+      <a class="active" href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="packages.html">Tour Packages</a>
+      <a href="experiences.html">Experiences</a>
+      <a href="guide.html">Travel Guide</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="icon-btn menu-btn" data-menu aria-label="Open menu">=</button>
+    <button class="btn" data-open-planner>Plan Your Trip -></button>
+  </nav>
+
+  <main>
+    <section class="visual-hero">
+      <div class="visual-hero-copy">
+        <h1>Collect<br>Moments.<span>Not Things.</span></h1>
+        <p class="script">Explore the world.<br>Experience cultures.<br>Create stories.<br>Live your adventure.</p>
+        <div class="hero-actions">
+          <a class="btn dark" href="packages.html">Explore Packages -></a>
+          <button class="btn light" data-open-planner>Build My Route</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero collage-showcase">
+      <div class="headline">
+        <div class="eyebrow">Explore The Grid</div>
+        <h2>Every route has a story waiting in the margins.</h2>
+        <p class="script">Pick a place.<br>Follow the feeling.<br>Make the map personal.</p>
+        <div class="hero-actions">
+          <a class="btn dark" href="destinations.html">Browse Destinations -></a>
+        </div>
+      </div>
+      <div class="collage" aria-label="Travel photo collage">
+        <div class="stamp s1">Adventure<br>Awaits</div>
+        <a class="photo p1" href="destination-detail.html?id=paris"><img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=500&q=80" alt="Greek island coast"><small>GREECE</small></a>
+        <a class="photo p2" href="destination-detail.html?id=bali"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80" alt="Tokyo street at night"><small>TOKYO, JAPAN</small></a>
+        <a class="photo p3" href="destinations.html"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80" alt="Forest cabin"></a>
+        <a class="photo p4" href="destination-detail.html?id=switzerland"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=700&q=80" alt="Mountain range"></a>
+        <a class="photo p5" href="destination-detail.html?id=maldives"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=600&q=80" alt="Maldives beach"><small>MALDIVES</small></a>
+        <a class="photo p6" href="experiences.html"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=500&q=80" alt="Desert road"></a>
+        <div class="note">LET'S GO<br>SOMEWHERE</div>
+        <div class="ticket">Travel More<br>Worry Less</div>
+        <div class="stamp s2">Time to<br>Travel</div>
+      </div>
+    </section>
+
+    <section class="section about">
+      <div>
+        <div class="eyebrow">About Us</div>
+        <h2>Explore the world, create unforgettable memories.</h2>
+        <p>Wanderlust Grid crafts practical, personality-filled journeys that move beyond generic itineraries. We pair iconic sights with local rhythms, good pacing, and thoughtful stays.</p>
+        <a class="btn dark" href="about.html">Learn More -></a>
+      </div>
+      <div class="feature"><div class="icon">O</div><h3>Curated Destinations</h3><p>Handpicked places with clear reasons to go.</p></div>
+      <div class="feature"><div class="icon">i</div><h3>Expert Guides</h3><p>Local knowledge for smoother travel days.</p></div>
+      <div class="feature"><div class="icon">*</div><h3>Memorable Experiences</h3><p>Activities that turn trips into stories.</p></div>
+      <div class="feature"><div class="icon">+</div><h3>Travel Support</h3><p>Help before and during your journey.</p></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div><div class="eyebrow">Top Destinations</div><h2>Where the grid points next.</h2></div>
+        <a class="btn light" href="destinations.html">View All Destinations -></a>
+      </div>
+      <div class="grid five" data-destinations data-limit="5"></div>
+    </section>
+
+    <section class="adventure">
+      <div></div>
+      <div>
+        <h2>Adventure is out there.</h2>
+        <p>Whether you are chasing sunsets, exploring cities, or finding quiet in nature, your next great trip starts with a simple route.</p>
+        <button class="btn" data-open-planner>Start Your Adventure -></button>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="stamp">Time to<br>Travel</div>
+      <h2>Get travel inspiration straight to your inbox.</h2>
+      <form class="signup" data-feedback-form="You are on the travel list.">
+        <input type="email" required placeholder="Your Email Address">
+        <button aria-label="Subscribe">-></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footgrid">
+      <div><div class="logo">WANDERLUST<span>GRID</span></div><p>Collect moments.<br>Not things.</p></div>
+      <div><h4>Quick Links</h4><a href="destinations.html">Destinations</a><a href="packages.html">Tour Packages</a><a href="experiences.html">Experiences</a><a href="guide.html">Travel Guide</a></div>
+      <div><h4>Support</h4><a href="guide.html#faq">FAQ</a><a href="guide.html#booking">Booking Policy</a><a href="guide.html#terms">Terms</a><a href="contact.html">Help Desk</a></div>
+      <div><h4>Contact</h4><p>hello@wanderlustgrid.com<br>+1 234 567 8900<br>123 Adventure Street,<br>Wanderland, Earth</p></div>
+      <div><p class="script">Adventure is<br>out there.</p></div>
+    </div>
+    <div class="copy">Copyright 2026 Wanderlust Grid. All rights reserved.</div>
+  </footer>
+
+  <div class="modal" id="plannerModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head"><h2>Plan your trip</h2><button class="icon-btn" data-close-planner aria-label="Close">x</button></div>
+      <form id="plannerForm" class="planner-panel">
+        <div class="field"><label>Destination</label><select name="destination"><option value="bali">Bali</option><option value="switzerland">Swiss Alps</option><option value="dubai">Dubai</option><option value="paris">Paris</option><option value="new-york">New York</option><option value="maldives">Maldives</option></select></div>
+        <div class="field"><label>Travelers</label><input name="travelers" type="number" min="1" value="2"></div>
+        <div class="field"><label>Days</label><input name="days" type="number" min="2" value="6"></div>
+        <div class="field"><label>Pace</label><select name="pace"><option>balanced</option><option>relaxed</option><option>packed</option></select></div>
+        <button class="btn dark" type="submit">Estimate Trip</button>
+      </form>
+      <div id="quoteResult" class="quote-box">Choose a route and generate a quick estimate.</div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
