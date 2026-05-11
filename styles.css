@@ -116,6 +116,20 @@ button { cursor: pointer; }
   background: #fffaf1;
   color: #111;
 }
+.menu-btn {
+  place-items: center;
+}
+.menu-lines {
+  display: grid;
+  gap: 4px;
+  width: 18px;
+}
+.menu-lines span {
+  display: block;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
 
 .visual-hero {
   min-height: calc(100vh - 80px);

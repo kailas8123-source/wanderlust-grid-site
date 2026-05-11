@@ -23,7 +23,11 @@ function setupNav() {
   const button = qs("[data-menu]");
   const links = qs(".links");
   if (!button || !links) return;
-  button.addEventListener("click", () => links.classList.toggle("open"));
+  button.setAttribute("aria-expanded", "false");
+  button.addEventListener("click", () => {
+    const isOpen = links.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(isOpen));
+  });
 }
 
 function card(item, kind = "destination") {
@@ -91,7 +95,7 @@ function setupPlanner() {
     document.body.insertAdjacentHTML("beforeend", `
       <div class="modal" id="plannerModal">
         <div class="modal-card">
-          <div class="modal-head"><h2>Plan your trip</h2><button class="icon-btn" data-close-planner aria-label="Close">x</button></div>
+          <div class="modal-head"><h2>Plan your trip</h2><button class="icon-btn" data-close-planner aria-label="Close planner">x</button></div>
           <form id="plannerForm" class="planner-panel">
             <div class="field"><label>Destination</label><select name="destination"><option value="bali">Bali</option><option value="switzerland">Swiss Alps</option><option value="dubai">Dubai</option><option value="paris">Paris</option><option value="new-york">New York</option><option value="maldives">Maldives</option></select></div>
             <div class="field"><label>Travelers</label><input name="travelers" type="number" min="1" value="2"></div>
@@ -111,10 +115,26 @@ function setupPlanner() {
   const result = qs("#quoteResult");
   if (!modal) return;
 
-  openers.forEach((button) => button.addEventListener("click", () => modal.classList.add("open")));
-  closers.forEach((button) => button.addEventListener("click", () => modal.classList.remove("open")));
+  if (!modal.hasAttribute("aria-hidden")) modal.setAttribute("aria-hidden", "true");
+
+  function openPlanner() {
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    qs("[name='destination']", modal)?.focus();
+  }
+
+  function closePlanner() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  openers.forEach((button) => button.addEventListener("click", openPlanner));
+  closers.forEach((button) => button.addEventListener("click", closePlanner));
   modal.addEventListener("click", (event) => {
-    if (event.target === modal) modal.classList.remove("open");
+    if (event.target === modal) closePlanner();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("open")) closePlanner();
   });
 
   if (form && result) {
