@@ -138,13 +138,29 @@ button { cursor: pointer; }
   align-items: center;
   position: relative;
   overflow: hidden;
+  background: #17130f;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.visual-hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background:
-    linear-gradient(90deg, rgba(246, 239, 228, .42) 0%, rgba(246, 239, 228, .1) 42%, rgba(246, 239, 228, 0) 72%),
-    url("assets/travel-hero-collage.png") center top/cover no-repeat;
+    linear-gradient(90deg, rgba(246, 239, 228, .58) 0%, rgba(246, 239, 228, .2) 45%, rgba(246, 239, 228, .04) 78%),
+    linear-gradient(0deg, rgba(17, 14, 11, .18), rgba(17, 14, 11, .08));
 }
 .visual-hero:after {
   content: "";
   position: absolute;
+  z-index: 2;
   right: -3%;
   bottom: -1px;
   left: -3%;
@@ -155,7 +171,7 @@ button { cursor: pointer; }
 .visual-hero-copy {
   width: min(470px, 48vw);
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 .visual-hero h1 {
   margin: 0 0 20px;
@@ -587,9 +603,17 @@ p { color: #38322d; line-height: 1.65; }
     min-height: 0;
     padding: clamp(310px, 82vw, 420px) 20px 50px;
     align-items: initial;
-    background:
-      url("assets/travel-hero-collage.png") center top/auto clamp(310px, 82vw, 420px) no-repeat,
-      linear-gradient(var(--paper), var(--paper));
+    background: var(--paper);
+  }
+  .hero-video {
+    height: clamp(310px, 82vw, 420px);
+    bottom: auto;
+    object-position: center top;
+  }
+  .visual-hero:before {
+    bottom: auto;
+    height: clamp(310px, 82vw, 420px);
+    background: linear-gradient(180deg, rgba(246, 239, 228, .04), rgba(246, 239, 228, .16));
   }
   .visual-hero-copy {
     width: 100%;
@@ -691,8 +715,10 @@ p { color: #38322d; line-height: 1.65; }
     padding-top: clamp(285px, 78vw, 340px);
     padding-left: 14px;
     padding-right: 14px;
-    background-position: center top;
-    background-size: auto clamp(285px, 78vw, 340px), auto;
+  }
+  .hero-video,
+  .visual-hero:before {
+    height: clamp(285px, 78vw, 340px);
   }
   .visual-hero-copy {
     padding: 18px 16px;
