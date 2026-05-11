@@ -132,8 +132,8 @@ button { cursor: pointer; }
 }
 
 .visual-hero {
-  min-height: calc(100vh - 80px);
-  padding: 56px 7vw 78px;
+  min-height: max(880px, calc(122vh - 80px));
+  padding: 96px 7vw 156px;
   display: flex;
   align-items: center;
   position: relative;
@@ -146,7 +146,7 @@ button { cursor: pointer; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 42%;
 }
 .visual-hero:before {
   content: "";
@@ -601,18 +601,18 @@ p { color: #38322d; line-height: 1.65; }
   .visual-hero {
     display: block;
     min-height: 0;
-    padding: clamp(310px, 82vw, 420px) 20px 50px;
+    padding: clamp(430px, 112vw, 620px) 20px 66px;
     align-items: initial;
     background: var(--paper);
   }
   .hero-video {
-    height: clamp(310px, 82vw, 420px);
+    height: clamp(430px, 112vw, 620px);
     bottom: auto;
     object-position: center top;
   }
   .visual-hero:before {
     bottom: auto;
-    height: clamp(310px, 82vw, 420px);
+    height: clamp(430px, 112vw, 620px);
     background: linear-gradient(180deg, rgba(246, 239, 228, .04), rgba(246, 239, 228, .16));
   }
   .visual-hero-copy {
@@ -712,13 +712,13 @@ p { color: #38322d; line-height: 1.65; }
   }
   .visual-hero {
     min-height: 0;
-    padding-top: clamp(285px, 78vw, 340px);
+    padding-top: clamp(390px, 112vw, 520px);
     padding-left: 14px;
     padding-right: 14px;
   }
   .hero-video,
   .visual-hero:before {
-    height: clamp(285px, 78vw, 340px);
+    height: clamp(390px, 112vw, 520px);
   }
   .visual-hero-copy {
     padding: 18px 16px;

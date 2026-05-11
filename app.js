@@ -30,11 +30,60 @@ function setupNav() {
   });
 }
 
+function setupHeroVideo() {
+  const video = qs("[data-lazy-video]");
+  const source = video?.querySelector("source[data-src]");
+  if (!video || !source) return;
+
+  function loadVideo() {
+    if (source.src) return;
+    source.src = source.dataset.src;
+    video.load();
+    const playPromise = video.play();
+    if (playPromise) playPromise.catch(() => {});
+  }
+
+  function queueVideoLoad() {
+    const schedule = () => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadVideo, { timeout: 900 });
+      } else {
+        window.setTimeout(loadVideo, 220);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      schedule();
+    } else {
+      window.addEventListener("load", schedule, { once: true });
+    }
+  }
+
+  const rect = video.getBoundingClientRect();
+  const margin = 360;
+  if (rect.top < window.innerHeight + margin && rect.bottom > -margin) {
+    queueVideoLoad();
+    return;
+  }
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      queueVideoLoad();
+      observer.disconnect();
+    }, { rootMargin: "360px 0px" });
+    observer.observe(video);
+    return;
+  }
+
+  window.setTimeout(loadVideo, 250);
+}
+
 function card(item, kind = "destination") {
   const href = kind === "experience" ? `experiences.html#${item.id}` : `destination-detail.html?id=${item.id}`;
   return `
     <article class="card" data-region="${item.region || ""}" data-style="${item.style || item.type || ""}" data-price="${item.price || 0}">
-      <a href="${href}"><img src="${item.image}" alt="${item.name}"></a>
+      <a href="${href}"><img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async"></a>
       <div class="card-body">
         <h3>${item.name}</h3>
         <p>${item.summary}</p>
@@ -193,6 +242,7 @@ function renderDetail() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupNav();
+  setupHeroVideo();
   renderDestinations(qs("[data-destinations]")?.dataset.limit ? Number(qs("[data-destinations]").dataset.limit) : undefined);
   renderExperiences();
   renderDetail();
